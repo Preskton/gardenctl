@@ -34,7 +34,7 @@ compile: ## Compile for the local architecture ⚙
 	-X 'github.com/$(org)/$(target).Copyright=$(copyright)' \
 	-X 'github.com/$(org)/$(target).License=$(license)' \
 	-X 'github.com/$(org)/$(target).Name=$(target)'" \
-	-o $(target) cmd/*.go
+	-o $(target) cmd/gardenctl/*.go
 
 install: ## Install the program to /usr/bin 🎉
 	@echo "Installing..."
@@ -47,6 +47,9 @@ test: clean compile install ## 🤓 Run go tests
 clean: ## Clean your artifacts 🧼
 	@echo "Cleaning..."
 	rm -rvf release/*
+
+run: compile
+	$(target)
 
 .PHONY: release
 release: ## Make the binaries for a GitHub release 📦
