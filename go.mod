@@ -1,4 +1,4 @@
-module github.com/kris-nova/nova
+module github.com/preskton/gardenctl
 
 go 1.18
 
